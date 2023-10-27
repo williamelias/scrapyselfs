@@ -1,0 +1,26 @@
+<header class="w3-container w3-red w3-center" style="padding:128px 16px">
+    <h1 class="w3-margin w3-jumbo">Inicie por aqui</h1>
+    <form [formGroup] = "scrapingForm" >
+      <label for="url"> <i class="fa fa-link fa-lg"> </i></label>
+      <input placeholder=" Insira a url desejada" id="url" type="url" formControlName="url">
+      <section [hidden]="!scrapingForm.value.url">
+        <label for="integrationType">Tipo de integração:</label>
+
+        <select name="integrationType" id="integrationType" formControlName="integrationType">
+          <option value="API">API</option>
+          <option value="Scraping">Scraping</option>
+        </select>
+
+        <section>
+
+          <label for="withProxy">Proxy: </label>
+          <input id="withProxy" formControlName="proxySetting" value="Yes" type="radio"> Yes
+          <input id="withProxy" formControlName="proxySetting" value="No" type="radio"> No
+        </section>
+      </section>
+      
+    </form>
+    <button [disabled]="!scrapingForm.valid" (click)="callUrl()" class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Realizar busca</button>
+    <p>insira a url para o botão ficar disponível</p>
+    <!-- <p>{{scrapingForm.status}}</p> -->
+</header>
